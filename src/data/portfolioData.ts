@@ -1,9 +1,28 @@
+import heroEditorialImg from '../assets/images/hero_avant_editorial_1793898971569.jpg';
+import apparelHoodieImg from '../assets/images/apparel_heavyweight_hoodie_1793898971940.jpg';
+import illustrationMythImg from '../assets/images/illustration_botanical_myth_1793898974120.jpg';
+import editorialSpreadImg from '../assets/images/editorial_monograph_spread_1793898975619.jpg';
+import campaignArchiveImg from '../assets/images/campaign_silence_archive_1793898975747.jpg';
+
 export const GENERATED_IMAGES = {
-  heroEditorial: '/src/assets/images/hero_avant_editorial_1793898971569.jpg',
-  apparelHoodie: '/src/assets/images/apparel_heavyweight_hoodie_1793898971940.jpg',
-  illustrationMyth: '/src/assets/images/illustration_botanical_myth_1793898974120.jpg',
-  editorialSpread: '/src/assets/images/editorial_monograph_spread_1793898975619.jpg',
-  campaignArchive: '/src/assets/images/campaign_silence_archive_1793898975747.jpg',
+  heroEditorial: heroEditorialImg,
+  apparelHoodie: apparelHoodieImg,
+  illustrationMyth: illustrationMythImg,
+  editorialSpread: editorialSpreadImg,
+  campaignArchive: campaignArchiveImg,
+};
+
+export const PUBLIC_IMAGE_FALLBACKS: Record<string, string> = {
+  [heroEditorialImg]: '/images/hero_avant_editorial.jpg',
+  [apparelHoodieImg]: '/images/apparel_heavyweight_hoodie.jpg',
+  [illustrationMythImg]: '/images/illustration_botanical_myth.jpg',
+  [editorialSpreadImg]: '/images/editorial_monograph_spread.jpg',
+  [campaignArchiveImg]: '/images/campaign_silence_archive.jpg',
+  '/src/assets/images/hero_avant_editorial_1793898971569.jpg': '/images/hero_avant_editorial.jpg',
+  '/src/assets/images/apparel_heavyweight_hoodie_1793898971940.jpg': '/images/apparel_heavyweight_hoodie.jpg',
+  '/src/assets/images/illustration_botanical_myth_1793898974120.jpg': '/images/illustration_botanical_myth.jpg',
+  '/src/assets/images/editorial_monograph_spread_1793898975619.jpg': '/images/editorial_monograph_spread.jpg',
+  '/src/assets/images/campaign_silence_archive_1793898975747.jpg': '/images/campaign_silence_archive.jpg',
 };
 
 export type DisciplineCategory =

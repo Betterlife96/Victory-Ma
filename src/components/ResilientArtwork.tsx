@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { PUBLIC_IMAGE_FALLBACKS } from '../data/portfolioData';
 
 interface ResilientImageProps {
   src?: string;
@@ -15,9 +16,26 @@ export const ResilientImage: React.FC<ResilientImageProps> = ({
   fallbackTitle = 'Visual Archive Plate',
   fallbackCode = 'VM-ARC',
 }) => {
+  const [currentSrc, setCurrentSrc] = useState<string | undefined>(src);
+  const [triedPublicFallback, setTriedPublicFallback] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  if (!src || failed) {
+  useEffect(() => {
+    setCurrentSrc(src);
+    setTriedPublicFallback(false);
+    setFailed(false);
+  }, [src]);
+
+  const handleImageError = () => {
+    if (!triedPublicFallback && src && PUBLIC_IMAGE_FALLBACKS[src]) {
+      setTriedPublicFallback(true);
+      setCurrentSrc(PUBLIC_IMAGE_FALLBACKS[src]);
+      return;
+    }
+    setFailed(true);
+  };
+
+  if (!currentSrc || failed) {
     return (
       <div
         className={`relative flex flex-col justify-between p-6 bg-[#0F0F12] border border-[#27272A] text-[#F4F4F0] overflow-hidden ${className}`}
@@ -50,10 +68,10 @@ export const ResilientImage: React.FC<ResilientImageProps> = ({
 
   return (
     <img
-      src={src}
+      src={currentSrc}
       alt={alt}
-      referrerPolicy="no-referrer"
-      onError={() => setFailed(true)}
+      decoding="async"
+      onError={handleImageError}
       className={className}
     />
   );

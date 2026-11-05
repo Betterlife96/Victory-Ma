@@ -97,7 +97,7 @@ npm run build`}
                 <span>03. Customizing Artwork &amp; Case Studies</span>
               </div>
               <p className="text-xs text-[#A1A1AA] leading-relaxed">
-                All conceptual projects, illustrations, garment tech packs, and editorial spreads are structured cleanly in <code className="text-[#F4F4F0] font-mono-tabular">src/data/portfolioData.ts</code>. As you create new client or personal works, simply add entries or drop high-resolution images into <code className="text-[#F4F4F0] font-mono-tabular">src/assets/images/</code>.
+                All conceptual projects, illustrations, garment tech packs, and editorial spreads are structured cleanly in <code className="text-[#F4F4F0] font-mono-tabular">src/data/portfolioData.ts</code>. Artwork files are both statically imported from <code className="text-[#F4F4F0] font-mono-tabular">src/assets/images/</code> and mirrored in <code className="text-[#F4F4F0] font-mono-tabular">public/images/</code> so they resolve reliably in local dev and on Vercel.
               </p>
             </div>
           </div>
